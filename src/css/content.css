@@ -1,0 +1,7 @@
+.content {
+  max-width: 100%;
+  margin: 10px 6px;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color:var(--bg-header);
+}
