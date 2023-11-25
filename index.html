@@ -25,27 +25,56 @@
     />
     <!-- Script -->
     <script src="./src/js/index.js" defer></script>
+    <script src="./src/js/getCar.js" defer></script>
+    <script src="./src/js/newCar.js" defer></script>
     <title>Freitas Parking</title>
   </head>
   <body>
     <div class="container">
       <header class="header">
         <form>
-          <input id="car.plate" type="text" placeholder="placa" />
-          <input id="car.model" type="text" placeholder="modelo" />
-          <input id="car.color" type="text" placeholder="cor" />
-          <input id="car.conductor" type="text" placeholder="condutor" />
-          <input id="car.phone" type="phone" placeholder="contato" />
+          <input
+            id="car.plate"
+            type="text"
+            placeholder="placa"
+            autocomplete="off"
+            maxlength="7"
+          />
+          <input
+            id="car.model"
+            type="text"
+            placeholder="modelo"
+            autocomplete="off"
+          />
+          <input
+            id="car.color"
+            type="text"
+            placeholder="cor"
+            autocomplete="off"
+          />
+          <input
+            id="car.conductor"
+            type="text"
+            placeholder="condutor"
+            autocomplete="off"
+          />
+          <input
+            id="car.phone"
+            type="number"
+            placeholder="contato"
+            autocomplete="off"
+            maxlength="11"
+          />
         </form>
         <button id="car.insert">inserir</button>
       </header>
       <section class="content">
         <div class="car">
-          <div class="box">
-            <span>entrada</span>
-            <p class="time">08:00</p>
-          </div>
           <div class="car-info">
+            <div class="box">
+              <span>entrada</span>
+              <p class="time">08:00</p>
+            </div>
             <div class="box">
               <span>placa</span>
               <p>KYJ-1230</p>

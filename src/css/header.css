@@ -26,6 +26,10 @@
 .header input::placeholder {
   color: var(--header-letter);
 }
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+  
+}
 
 .header button {
   cursor: pointer;
