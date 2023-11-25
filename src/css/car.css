@@ -19,6 +19,7 @@
 }
 .box {
   display: flex;
+  width: 100px;
   flex-direction: column;
   gap: 0.2rem;
   align-items: start;
