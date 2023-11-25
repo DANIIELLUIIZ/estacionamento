@@ -1,5 +1,6 @@
 const content = document.querySelector('.content')
 const btnInsertCar = document.getElementById('car.insert')
+const carControl = document.querySelector('.car-control')
 
 class Car {
   constructor(plate, model, color, conductor, phone) {
@@ -9,6 +10,20 @@ class Car {
     this.conductor = conductor
     this.phone = phone
   }
+}
+
+// ======== Funcoes
+function getCar() {
+  const carPlate = document.getElementById('car.plate').value
+  const carModel = document.getElementById('car.model').value
+  const carColor = document.getElementById('car.color').value
+  const carConductor = document.getElementById('car.conductor').value
+  const carPhone = document.getElementById('car.phone').value
+  let id = 0
+
+  let car = new Car(carPlate, carModel, carColor, carConductor, carPhone)
+
+  createCar(car)
 }
 
 function createCar(car) {
@@ -46,30 +61,42 @@ function createCar(car) {
     <button class="conductor-car">
       <i class="fa-solid fa-user"></i>
     </button>
-    <button class="finish-car">
+    <button class="delete-car">
       <i class="fa-solid fa-x"></i>
     </button>
-    <button class="delete-car">
+    <button class="finish-car">
       <i class="fa-solid fa-check"></i>
     </button>
   </div>
 </div>`
 }
 
-function getCar() {
-  const carPlate = document.getElementById('car.plate').value
-  const carModel = document.getElementById('car.model').value
-  const carColor = document.getElementById('car.color').value
-  const carConductor = document.getElementById('car.conductor').value
-  const carPhone = document.getElementById('car.phone').value
-  let id = 0
+function deleteCar(element) {
+  let carControl = element.parentElement
+  let car = carControl.parentElement
 
-  let car = new Car(carPlate, carModel, carColor, carConductor, carPhone)
-
-  createCar(car)
+  if (car.classList.contains('car')) {
+    car.remove()
+  }
 }
+
+
+
+
+// ========== Eventes
+
 
 btnInsertCar.addEventListener('click', e => {
   e.preventDefault()
   getCar()
+})
+
+document.addEventListener('click', e => {
+  const element = e.target
+  if (element.classList.contains('delete-car')) {
+    deleteCar(element)
+  }
+  else if(element.classList.contains('finish-car')){
+    console.log("carro finalizado")
+  }
 })

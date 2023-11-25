@@ -19,7 +19,7 @@
 }
 .box {
   display: flex;
-  width: 100px;
+  width: fit-content;
   flex-direction: column;
   gap: 0.2rem;
   align-items: start;
@@ -60,6 +60,7 @@
 }
 
 .car-control > button > i {
+  pointer-events: none;
   font-size: 1rem;
   color: #ffffff;
   transition: 0.2s ease-in-out;
