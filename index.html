@@ -25,7 +25,6 @@
     />
     <!-- Script -->
     <script src="./src/js/index.js" defer></script>
-    <script src="./src/js/getCar.js" defer></script>
     <script src="./src/js/newCar.js" defer></script>
     <title>Freitas Parking</title>
   </head>
@@ -39,6 +38,7 @@
             placeholder="placa"
             autocomplete="off"
             maxlength="7"
+          
           />
           <input
             id="car.model"
@@ -68,50 +68,7 @@
         </form>
         <button id="car.insert">inserir</button>
       </header>
-      <section class="content">
-        <div class="car">
-          <div class="car-info">
-            <div class="box">
-              <span>entrada</span>
-              <p class="time">08:00</p>
-            </div>
-            <div class="box">
-              <span>placa</span>
-              <p>KYJ-1230</p>
-            </div>
-            <div class="box">
-              <span>Marca/modelo</span>
-              <p>Toyota - Etios</p>
-            </div>
-            <div class="box">
-              <span>cor</span>
-              <p>Preto</p>
-            </div>
-          </div>
-          <div class="conductor-info">
-            <div class="box">
-              <span>name</span>
-              <p>Daniel</p>
-            </div>
-
-            <div class="box">
-              <span>contato</span>
-              <p>(21)9 9829-7935</p>
-            </div>
-          </div>
-          <div class="car-control">
-            <button class="conductor-car">
-              <i class="fa-solid fa-user"></i>
-            </button>
-            <button class="delete-car">
-              <i class="fa-solid fa-x"></i>
-            </button>
-            <button class="finish-car">
-              <i class="fa-solid fa-check"></i>
-            </button>
-          </div>
-        </div>
-      </section>
+      <section class="content"></section>
     </div>
   </body>
 </html>

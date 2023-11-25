@@ -47,7 +47,8 @@ function getCar() {
 }
 //tenho que fazer funcionar ainda
 function getPlate() {
-  let plate = carPlate.value.replace(/^(\d{3})(\d{4})/, '$1.$2')
+  let plate = carPlate.value.replace(/^(\w{3})(\w{4})/, '$1-$2')
+
   return plate
 }
 

@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 5px;
+  overflow: hidden;
   border: 1px solid var(--border);
   background-color: var(--bg-header);
 }
@@ -26,9 +27,8 @@
 .header input::placeholder {
   color: var(--header-letter);
 }
-input[type=number]::-webkit-inner-spin-button { 
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  
 }
 
 .header button {
