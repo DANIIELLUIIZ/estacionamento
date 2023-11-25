@@ -3,10 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- css -->
     <link rel="stylesheet" href="./src/css/global.css" />
     <link rel="stylesheet" href="/src/css/header.css" />
     <link rel="stylesheet" href="./src/css/content.css" />
+    <link rel="stylesheet" href="./src/css/car.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font-Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Freitas Parking</title>
   </head>
   <body>
@@ -21,7 +37,50 @@
         </form>
         <button id="car.insert">inserir</button>
       </header>
-      <section class="content"></section>
+      <section class="content">
+        <div class="car">
+          <div class="box">
+            <span>entrada</span>
+            <p class="time">08:00</p>
+          </div>
+          <div class="car-info">
+            <div class="box">
+              <span>placa</span>
+              <p>KYJ-1230</p>
+            </div>
+            <div class="box">
+              <span>Marca/modelo</span>
+              <p>Toyota - Etios</p>
+            </div>
+            <div class="box">
+              <span>cor</span>
+              <p>Preto</p>
+            </div>
+          </div>
+          <div class="conductor-info">
+            <div class="box">
+              <span>name</span>
+              <p>Daniel</p>
+            </div>
+
+            <div class="box">
+              <span>contato</span>
+              <p>(21)9 9829-7935</p>
+            </div>
+          </div>
+          <div class="car-control">
+            <button class="conductor-car">
+              <i class="fa-solid fa-user"></i>
+            </button>
+            <button class="finish-car">
+              <i class="fa-solid fa-x"></i>
+            </button>
+            <button class="delete-car">
+              <i class="fa-solid fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
