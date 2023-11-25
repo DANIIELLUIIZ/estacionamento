@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  box-sizing: border-box;
+}
+:root {
+  --bg-main: ;
+  --bg-app: #166cc2a7;
+  --border: rgba(122, 120, 120, 0.662);
+  --bg-header: #77c1f9;
+  --header-letter: rgba(171, 170, 170, 0.542);
+  --btn-letter: white;
+  --btn-bg: #1e88e3;
+  --btn-bg-hover: #0c51a3;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+.container {
+  position: relative;
+  max-width: 1024px;
+  height: 80%;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-app);
+  border: 1px solid var(--border);
+}
