@@ -1,7 +1,13 @@
-const content = document.querySelector('.content')
-const btnInsertCar = document.getElementById('car.insert')
-const carControl = document.querySelector('.car-control')
+let content = document.querySelector('.content')
+let carPlate = document.getElementById('car.plate')
+let carModel = document.getElementById('car.model')
+let carColor = document.getElementById('car.color')
+let carConductor = document.getElementById('car.conductor')
+let carPhone = document.getElementById('car.phone')
+let btnInsertCar = document.getElementById('car.insert')
+let carControl = document.querySelector('.car-control')
 
+// ======== Funcoes
 class Car {
   constructor(plate, model, color, conductor, phone) {
     this.plate = plate
@@ -12,65 +18,50 @@ class Car {
   }
 }
 
-// ======== Funcoes
 function getCar() {
-  const carPlate = document.getElementById('car.plate').value
-  const carModel = document.getElementById('car.model').value
-  const carColor = document.getElementById('car.color').value
-  const carConductor = document.getElementById('car.conductor').value
-  const carPhone = document.getElementById('car.phone').value
-  let id = 0
+  const PLATE = getPlate()
+  const MODEL = carModel.value
+  const COLOR = carColor.value
+  const CONDUCTOR = carConductor.value
+  const PHONE = getPhone()
 
-  let car = new Car(carPlate, carModel, carColor, carConductor, carPhone)
+  const car = new Car(PLATE, MODEL, COLOR, CONDUCTOR, PHONE)
 
-  createCar(car)
+  if (
+    PLATE == '' ||
+    MODEL == '' ||
+    COLOR == '' ||
+    CONDUCTOR == '' ||
+    PHONE == ''
+  ) {
+    window.alert('Existem campos vazios')
+    e.preventDefault()
+  } else if (PHONE.length < 11) {
+    window.alert(
+      'O telefone informado parecer ter mais ou menos números que o padrão: ("2199999-9999").'
+    )
+    e.preventDefault()
+  } else {
+    createCar(car)
+  }
+}
+//tenho que fazer funcionar ainda
+function getPlate() {
+  let plate = carPlate.value.replace(/^(\d{3})(\d{4})/, '$1.$2')
+  return plate
 }
 
-function createCar(car) {
-  content.innerHTML += `<div class="car">
-  <div class="box">
-    <span>entrada</span>
-    <p class="time">08:00</p>
-  </div>
-  <div class="car-info">
-    <div class="box">
-      <span>placa</span>
-      <p>${car.plate}</p>
-    </div>
-    <div class="box">
-      <span>Marca/modelo</span>
-      <p>${car.model}</p>
-    </div>
-    <div class="box">
-      <span>cor</span>
-      <p>${car.color}</p>
-    </div>
-  </div>
-  <div class="conductor-info">
-    <div class="box">
-      <span>name</span>
-      <p>${car.conductor}</p>
-    </div>
+function getPhone() {
+  const phone = carPhone.value.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
 
-    <div class="box">
-      <span>contato</span>
-      <p>${car.phone}</p>
-    </div>
-  </div>
-  <div class="car-control">
-    <button class="conductor-car">
-      <i class="fa-solid fa-user"></i>
-    </button>
-    <button class="delete-car">
-      <i class="fa-solid fa-x"></i>
-    </button>
-    <button class="finish-car">
-      <i class="fa-solid fa-check"></i>
-    </button>
-  </div>
-</div>`
+  return phone
 }
-
+function showConductor(element) {
+  let carControl = element.parentElement
+  let car = carControl.parentElement
+  let carInfo = car.children[1]
+  carInfo.classList.toggle('hide')
+}
 function deleteCar(element) {
   let carControl = element.parentElement
   let car = carControl.parentElement
@@ -80,23 +71,26 @@ function deleteCar(element) {
   }
 }
 
-
-
-
 // ========== Eventes
-
 
 btnInsertCar.addEventListener('click', e => {
   e.preventDefault()
   getCar()
+  carPlate.value = ''
+  carModel.value = ''
+  carColor.value = ''
+  carConductor.value = ''
+  carPhone.value = ''
 })
 
 document.addEventListener('click', e => {
   const element = e.target
+
   if (element.classList.contains('delete-car')) {
     deleteCar(element)
-  }
-  else if(element.classList.contains('finish-car')){
-    console.log("carro finalizado")
+  } else if (element.classList.contains('finish-car')) {
+    console.log('carro finalizado')
+  } else if (element.classList.contains('conductor-car')) {
+    showConductor(element)
   }
 })
