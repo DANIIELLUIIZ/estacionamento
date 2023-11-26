@@ -7,7 +7,6 @@ let carPhone = document.getElementById('car.phone')
 let btnInsertCar = document.getElementById('car.insert')
 let carControl = document.querySelector('.car-control')
 
-// ======== Funcoes
 class Car {
   constructor(plate, model, color, conductor, phone) {
     this.plate = plate
@@ -17,17 +16,18 @@ class Car {
     this.phone = phone
   }
 }
+// ======== Funcoes
 
-//((horas * 60 + minutes) / 60) * 15
 function getCar() {
+  // pegando os valores passados
   const PLATE = getPlate()
   const MODEL = carModel.value
   const COLOR = carColor.value
   const CONDUCTOR = carConductor.value
   const PHONE = getPhone()
-
+  //cria um novo carro com os valores passados
   const car = new Car(PLATE, MODEL, COLOR, CONDUCTOR, PHONE)
-
+  // validacoes de input
   if (
     PLATE == '' ||
     MODEL == '' ||
@@ -47,13 +47,13 @@ function getCar() {
   }
 }
 
-//tenho que fazer funcionar ainda
+//recebe e formata a placa para o padrao brasileiro/
 function getPlate() {
   let plate = carPlate.value.replace(/^(\w{3})(\w{4})/, '$1-$2')
-
+  //falta fazer para o padrao mercosul
   return plate
 }
-
+//reebe e formata o número de telefone recebido no input
 function getPhone() {
   const phone = carPhone.value.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
 
@@ -85,13 +85,14 @@ function finishCar(element) {
     `O valor a ser pago pela permanência de ${carHour} horas é de R$${finalValue}`
   )
 }
-
+// mostra os dados do condutor do veiculo
 function showConductor(element) {
   let carControl = element.parentElement
   let car = carControl.parentElement
   let carInfo = car.children[1]
   carInfo.classList.toggle('hide')
 }
+// apaga o carro
 function deleteCar(element) {
   let carControl = element.parentElement
   let car = carControl.parentElement
@@ -102,10 +103,11 @@ function deleteCar(element) {
 }
 
 // ========== Events
-
+//insere o veiculo
 btnInsertCar.addEventListener('click', e => {
   e.preventDefault()
   getCar()
+  //zerar valores dos inputs após adicionar o veículo
   carPlate.value = ''
   carModel.value = ''
   carColor.value = ''
