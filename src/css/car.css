@@ -32,6 +32,11 @@
   font-size: 1rem;
   color: var(--car-info);
 }
+.current-time {
+  display: flex;
+  font-size: 1rem;
+  color: var(--car-info);
+}
 .car-control {
   display: flex;
   flex-direction: row;

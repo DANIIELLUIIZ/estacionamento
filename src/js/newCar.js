@@ -23,6 +23,7 @@ function createCar(car) {
       <span>cor</span>
       <p>${car.color}</p>
     </div>
+
   </div>
   <div class="conductor-info hide">
     <div class="box">

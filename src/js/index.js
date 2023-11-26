@@ -18,6 +18,7 @@ class Car {
   }
 }
 
+//((horas * 60 + minutes) / 60) * 15
 function getCar() {
   const PLATE = getPlate()
   const MODEL = carModel.value
@@ -38,13 +39,14 @@ function getCar() {
     e.preventDefault()
   } else if (PHONE.length < 11) {
     window.alert(
-      'O telefone informado parecer ter mais ou menos números que o padrão: ("2199999-9999").'
+      'O telefone informado parece ter mais, ou menos números que o padrão: ("2199999-9999").'
     )
     e.preventDefault()
   } else {
     createCar(car)
   }
 }
+
 //tenho que fazer funcionar ainda
 function getPlate() {
   let plate = carPlate.value.replace(/^(\w{3})(\w{4})/, '$1-$2')
@@ -57,6 +59,33 @@ function getPhone() {
 
   return phone
 }
+
+function finishCar(element) {
+  // pega a hora de saída do veiculo
+  const date = new Date()
+  const horas = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+  const minutes =
+    date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
+  //faz a juncao dos dois por ponto, para poder realizar o calculo e receber o valor em minutos
+  let finish = horas + '.' + minutes
+  // pega o valor da hora de entrada do elemento que foi clicado
+  let carControl = element.parentElement //pai do elemento clicado
+  let car = carControl.parentElement
+  let carInfo = car.children[0]
+  let box = carInfo.children[0]
+  let timeBox = box.children[1]
+  //trocar o dois pontos por ponto, também parece realizar a operacao que recebe os minutos
+  let start = timeBox.textContent.replace(':', '.')
+  //faz o calculo da diferenca entre os minutos de saída com o de entrada, assim multiplicando pelo valor hora do estacionamento(15 reais) que foi dividos por minutos hora.
+  let finalValue = ((finish - start) * 15).toFixed(2)
+  //Mostra o tempo que o carro ficou
+  let carHour = (finish - start).toFixed(2)
+
+  window.alert(
+    `O valor a ser pago pela permanência de ${carHour} horas é de R$${finalValue}`
+  )
+}
+
 function showConductor(element) {
   let carControl = element.parentElement
   let car = carControl.parentElement
@@ -72,7 +101,7 @@ function deleteCar(element) {
   }
 }
 
-// ========== Eventes
+// ========== Events
 
 btnInsertCar.addEventListener('click', e => {
   e.preventDefault()
@@ -90,7 +119,7 @@ document.addEventListener('click', e => {
   if (element.classList.contains('delete-car')) {
     deleteCar(element)
   } else if (element.classList.contains('finish-car')) {
-    console.log('carro finalizado')
+    finishCar(element)
   } else if (element.classList.contains('conductor-car')) {
     showConductor(element)
   }
