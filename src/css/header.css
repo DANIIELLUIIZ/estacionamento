@@ -12,10 +12,10 @@
 }
 .header form {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 .header input {
-  width: 150px;
+  max-width: 160px;
   padding: 0.6rem 0.2rem;
   font-size: 0.6rem;
   text-align: center;
