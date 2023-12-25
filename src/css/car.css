@@ -25,11 +25,10 @@
 }
 .box > span {
   font-size: 0.7rem;
-  font-weight: bold;
   color: var(--info-title);
 }
 .box > p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--car-info);
 }
 .current-time {

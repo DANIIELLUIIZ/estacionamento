@@ -24,6 +24,11 @@ function createCar(car) {
       <p>${car.color}</p>
     </div>
 
+    <div class="box hide">
+    </div>
+    <div class="box hide">      
+    </div>
+
   </div>
   <div class="conductor-info hide">
     <div class="box">
@@ -35,6 +40,8 @@ function createCar(car) {
       <span>contato</span>
       <p>${car.phone}</p>
     </div>
+
+    
   </div>
   <div class="car-control">
     <button class="conductor-car">

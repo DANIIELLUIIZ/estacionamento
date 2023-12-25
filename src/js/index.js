@@ -1,11 +1,11 @@
-let content = document.querySelector('.content')
-let carPlate = document.getElementById('car.plate')
-let carModel = document.getElementById('car.model')
-let carColor = document.getElementById('car.color')
-let carConductor = document.getElementById('car.conductor')
-let carPhone = document.getElementById('car.phone')
-let btnInsertCar = document.getElementById('car.insert')
-let carControl = document.querySelector('.car-control')
+const content = document.querySelector('.content')
+const carPlate = document.getElementById('car.plate')
+const carModel = document.getElementById('car.model')
+const carColor = document.getElementById('car.color')
+const carConductor = document.getElementById('car.conductor')
+const carPhone = document.getElementById('car.phone')
+const btnInsertCar = document.getElementById('car.insert')
+const carControl = document.querySelector('.car-control')
 
 class Car {
   constructor(plate, model, color, conductor, phone) {
@@ -80,10 +80,8 @@ function finishCar(element) {
   let timeDiference = finish * 60 - start
   let timeParking = (timeDiference / 60).toFixed(2)
   let valueParking = (timeParking * 15).toFixed(2)
-
-  alert(
-    `O valor a ser pago pela permanência de ${timeParking} é de R$ ${valueParking}`
-  )
+  showParkingTime(carInfo, timeParking)
+  showPriceBox(carInfo, valueParking)
 }
 // mostra os dados do condutor do veiculo
 function showConductor(element) {
@@ -96,12 +94,31 @@ function showConductor(element) {
 function deleteCar(element) {
   let carControl = element.parentElement
   let car = carControl.parentElement
-
   if (car.classList.contains('car')) {
     car.remove()
   }
 }
 
+// mostra o tempo que o carro permaneceu
+function showParkingTime(carInfo, timeParking) {
+  let timeBox = carInfo.children[4]
+  timeBox.classList.remove('hide')
+  timeBox.innerHTML = `
+  <span>tempo</span>
+ <p> ${timeParking} </p>
+  `
+}
+// mostra o valor a ser pago pelo cliente
+function showPriceBox(carInfo, valueParking) {
+  let valueBox = carInfo.children[5]
+  valueBox.classList.remove('hide')
+  valueBox.innerHTML = `
+  <span>a pagar</span>
+ <p> R$:${valueParking} </p>
+  `
+}
+
+// Adiciona uma cor ao botao que finaliza e o impede de ser clicado novamente
 function disableCheckBtn(element) {
   element.classList.add('check')
 }
