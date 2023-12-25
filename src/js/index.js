@@ -59,7 +59,7 @@ function getPhone() {
 
   return phone
 }
-
+// finaliza o tempo de permanencia do carro
 function finishCar(element) {
   // pega a hora de saída do veiculo
   const date = new Date()
