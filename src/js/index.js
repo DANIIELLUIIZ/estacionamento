@@ -75,14 +75,14 @@ function finishCar(element) {
   let box = carInfo.children[0]
   let timeBox = box.children[1]
   //trocar o dois pontos por ponto, também parece realizar a operacao que recebe os minutos
-  let start = timeBox.textContent.replace(':', '.')
-  //faz o calculo da diferenca entre os minutos de saída com o de entrada, assim multiplicando pelo valor hora do estacionamento(15 reais) que foi dividos por minutos hora.
-  let finalValue = ((finish - start) * 15).toFixed(2)
-  //Mostra o tempo que o carro ficou
-  let carHour = (finish - start).toFixed(2)
+  let start = timeBox.textContent.replace(':', '.') * 60
+  // difenreca entre a entrada e saída
+  let timeDiference = finish * 60 - start
+  let timeParking = (timeDiference / 60).toFixed(2)
+  let valueParking = (timeParking * 15).toFixed(2)
 
-  window.alert(
-    `O valor a ser pago pela permanência de ${carHour} horas é de R$${finalValue}`
+  alert(
+    `O valor a ser pago pela permanência de ${timeParking} é de R$ ${valueParking}`
   )
 }
 // mostra os dados do condutor do veiculo
@@ -102,7 +102,10 @@ function deleteCar(element) {
   }
 }
 
-// ========== Events
+function disableCheckBtn(element) {
+  element.classList.add('check')
+}
+// ========== Events ==========================//
 //insere o veiculo
 btnInsertCar.addEventListener('click', e => {
   e.preventDefault()
@@ -122,6 +125,7 @@ document.addEventListener('click', e => {
     deleteCar(element)
   } else if (element.classList.contains('finish-car')) {
     finishCar(element)
+    disableCheckBtn(element)
   } else if (element.classList.contains('conductor-car')) {
     showConductor(element)
   }

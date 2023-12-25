@@ -57,6 +57,10 @@
   border-radius: 10px;
   background-color: var(--bg-header);
 }
+.check {
+  pointer-events: none;
+  background-color: rgb(9, 221, 9);
+}
 .conductor-info {
   display: flex;
   gap: 1rem;
